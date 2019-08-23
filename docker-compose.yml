@@ -8,5 +8,6 @@ services:
     volumes:
       - .:/var/www/app
       - ./container/apache.conf:/etc/apache2/sites-available/000-default.conf
+      - ./container/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     ports:
       - 3000:80

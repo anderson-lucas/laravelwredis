@@ -60,3 +60,10 @@ RUN \
   sed -i 's/^\(daemonize .*\)$/# \1/' /etc/redis/redis.conf && \
   sed -i 's/^\(dir .*\)$/# \1\ndir \/data/' /etc/redis/redis.conf && \
   sed -i 's/^\(logfile .*\)$/# \1/' /etc/redis/redis.conf
+
+# ------------------------------------------------------------------------------
+# ServerName para evitar erros
+# ------------------------------------------------------------------------------
+RUN echo 'ServerName localhost' >> /etc/apache2/apache2.conf && a2enmod rewrite ssl
+
+CMD ["/usr/bin/supervisord"]
